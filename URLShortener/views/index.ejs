@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Shortener</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-4---Table-Fixed-Header.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-color: rgb(241,247,252);">
+    <div class="register-photo">
+        <div class="form-container">
+            <form action = "/shortUrls" method="POST">
+                <label for="fullUrl" class="sr-only">Url</label>
+                <input class="form-control" type="url" name="url" id = "fullUrl" placeholder="Enter url">
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Shorten</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead style="color: rgb(58,5,21);">
+                <tr>
+                    <th style="color: #ed456a;">Original URL</th>
+                    <th style="color:  #ed456a;">Shortened URL</th>
+                    <th style="color:  #ed456a;">Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% shortUrls.forEach(shortUrl => { %>
+                <tr>
+                    <td style="color: rgb(68,128,188);"><%= shortUrl.full %></td>
+                    <td style="color: rgb(68,128,188);"><%= shortUrl.short %></td>
+                    <td style="color: rgb(68,128,188);"><%= shortUrl.clicks %></td>
+                </tr>
+                <% }) %>
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
